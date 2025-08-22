@@ -65,12 +65,14 @@ func LoadConfig(configPath string) (*Config, error) {
 		if err := loadFromFile(config, configPath); err != nil {
 			return nil, fmt.Errorf("failed to load config from file: %v", err)
 		}
-	} else {
-		// Try to load legacy .apiConfig file by default
-		if err := loadLegacyAPIConfig(config); err != nil {
-			return nil, fmt.Errorf("failed to load API config: %v", err)
-		}
-	}
+} else {
+    if os.Getenv("OPENWEATHER_API_KEY") == "" {
+        if err := loadLegacyAPIConfig(config); err != nil {
+            return nil, fmt.Errorf("failed to load API config: %v", err)
+        }
+    }
+}
+
 
 	// Override with environment variables
 	loadFromEnv(config)
