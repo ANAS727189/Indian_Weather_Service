@@ -1,14 +1,13 @@
 'use client';
 
-import { CloudIcon, InformationCircleIcon, Bars3Icon, XMarkIcon, GlobeAltIcon, EyeDropperIcon } from '@heroicons/react/24/outline';
+import { CloudIcon, InformationCircleIcon, GlobeAltIcon} from '@heroicons/react/24/outline';
 import { useTemperature } from '@/context/TemperatureContext';
 import { 
     SignInButton, 
     SignUpButton,
     UserButton,
     SignedIn,
-    SignedOut,
-    useUser
+    SignedOut
 } from '@clerk/nextjs';
 
 const currentTime = new Date().toLocaleString('en-IN', {

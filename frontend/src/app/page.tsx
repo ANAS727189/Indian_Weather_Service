@@ -11,9 +11,7 @@ import ErrorMessage from '@/components/ErrorMessage';
 import { 
   CloudIcon, 
   ExclamationTriangleIcon,
-  PhoneIcon 
 } from '@heroicons/react/24/outline';
-import Header from '@/components/Header';
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);

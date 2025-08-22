@@ -1,7 +1,7 @@
 'use client';
 
 import { WeatherData } from '@/types/weather';
-import { getWeatherIcon, formatTemperature, formatTime, getWindDirection, capitalizeFirstLetter } from '@/lib/utils';
+import { getWeatherIcon, formatTime, getWindDirection, capitalizeFirstLetter } from '@/lib/utils';
 import {
   EyeIcon,
   ArrowUpIcon,
@@ -11,6 +11,7 @@ import {
   SunIcon,
 } from '@heroicons/react/24/outline';
 import { useTemperature } from '@/context/TemperatureContext';
+import Image from 'next/image';
 
 interface WeatherCardProps {
   weather: WeatherData;
@@ -64,7 +65,7 @@ export default function WeatherCard({ weather }: WeatherCardProps) {
               Feels like {convertTemp(weather.main.feels_like)}
             </p>
             <div className="flex items-center justify-center lg:justify-end">
-              <img
+              <Image
                 src={getWeatherIcon(currentWeather.icon)}
                 alt={currentWeather.description}
                 className="w-16 h-16 mr-3"

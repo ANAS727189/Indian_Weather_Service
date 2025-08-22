@@ -98,7 +98,7 @@ export default function SearchBar({ onSearch, loading = false }: SearchBarProps)
     }
   };
 
-  const handleBlur = (e: React.FocusEvent) => {
+  const handleBlur = () => {
     // Delay closing to allow for suggestion clicks
     setTimeout(() => {
       if (!suggestionsRef.current?.contains(document.activeElement)) {

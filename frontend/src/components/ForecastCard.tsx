@@ -1,9 +1,10 @@
 'use client';
 
 import { ForecastData } from '@/types/weather';
-import { getWeatherIcon, formatTemperature, formatDate } from '@/lib/utils';
+import { getWeatherIcon, formatDate } from '@/lib/utils';
 import { CalendarDaysIcon, ClockIcon } from '@heroicons/react/24/outline';
 import { useTemperature } from '@/context/TemperatureContext';
+import Image from 'next/image';
 
 interface ForecastCardProps {
   forecast: ForecastData;
@@ -19,7 +20,7 @@ const { unit } = useTemperature();
     };
 
 
-  const dailyForecast = forecast.list.filter((item, index) => {
+  const dailyForecast = forecast.list.filter((item) => {
     const date = new Date(item.dt * 1000);
     const hour = date.getHours();
     return hour >= 11 && hour <= 13;
@@ -61,7 +62,7 @@ const { unit } = useTemperature();
                 </h3>
                 
                 {/* Weather Icon */}
-                <img
+                <Image
                   src={getWeatherIcon(item.weather[0].icon)}
                   alt={item.weather[0].description}
                   className="w-16 h-16 mx-auto mb-4"
@@ -142,7 +143,7 @@ const { unit } = useTemperature();
                   </p>
                   
                   {/* Weather Icon */}
-                  <img
+                  <Image
                     src={getWeatherIcon(item.weather[0].icon)}
                     alt={item.weather[0].description}
                     className="w-10 h-10 mx-auto mb-3"
