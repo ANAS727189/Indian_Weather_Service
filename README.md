@@ -37,7 +37,6 @@ A professional-grade weather application built with modern Go backend architectu
 1. **Clone and navigate to the project:**
    ```bash
    git clone <repository-url>
-   cd Weather
    ```
 
 2. **Install dependencies:**
