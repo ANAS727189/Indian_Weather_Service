@@ -1,4 +1,4 @@
-# Weather Service API
+# Indian Weather Service
 
 A professional-grade weather application built with modern Go backend architecture and Next.js frontend. Provides real-time weather data and 5-day forecasts for cities worldwide through a robust RESTful API.
 
