@@ -48,7 +48,7 @@ func LoadConfig(configPath string) (*Config, error) {
 			ReadTimeout:  30,
 			WriteTimeout: 30,
 			CORS: CORSConfig{
-				AllowedOrigins:   []string{"http://localhost:3000", "http://127.0.0.1:3000"},
+				AllowedOrigins:   []string{"http://localhost:3000", "http://127.0.0.1:3000", "https://indian-weather-service.vercel.app/", "https://weather-service-kohl.vercel.app/"},
 				AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 				AllowedHeaders:   []string{"*"},
 				AllowCredentials: true,
