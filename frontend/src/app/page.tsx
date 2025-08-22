@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 mt-8">
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8 pt-32 pb-12 mt-12">
+      <main className="max-w-7xl mx-auto px-4 py-8 pt-32 pb-12 mt-24 md:mt-14">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Current Weather Conditions

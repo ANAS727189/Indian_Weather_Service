@@ -69,6 +69,8 @@ export default function WeatherCard({ weather }: WeatherCardProps) {
                 src={getWeatherIcon(currentWeather.icon)}
                 alt={currentWeather.description}
                 className="w-16 h-16 mr-3"
+                width={64}
+                height={64}
               />
               <div className="text-left">
                 <p className="text-xl font-semibold">{currentWeather.main}</p>

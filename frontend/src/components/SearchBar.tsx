@@ -120,8 +120,8 @@ export default function SearchBar({ onSearch, loading = false }: SearchBarProps)
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          placeholder="Search for a city or district..."
-          className="w-full px-6 py-4 pl-14 text-lg bg-white border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed text-gray-500"
+          placeholder="Search for a city/district..."
+          className="w-full px-6 py-4 pl-14 text-sm md:text-lg bg-white border-2 border-gray-300 rounded-2xl focus:outline-none focus:border-blue-600 focus:ring-4 focus:ring-blue-100 transition-all duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed text-gray-500"
           disabled={loading}
           autoComplete="off"
         />

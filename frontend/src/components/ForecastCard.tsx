@@ -66,6 +66,8 @@ const { unit } = useTemperature();
                   src={getWeatherIcon(item.weather[0].icon)}
                   alt={item.weather[0].description}
                   className="w-16 h-16 mx-auto mb-4"
+                  width={64}
+                  height={64}
                 />
                 
                 {/* Description */}
@@ -147,6 +149,8 @@ const { unit } = useTemperature();
                     src={getWeatherIcon(item.weather[0].icon)}
                     alt={item.weather[0].description}
                     className="w-10 h-10 mx-auto mb-3"
+                    width={40}
+                    height={40}
                   />
                   
                   {/* Temperature */}
