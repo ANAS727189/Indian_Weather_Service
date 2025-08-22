@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // Config holds all configuration for the application
@@ -48,7 +49,7 @@ func LoadConfig(configPath string) (*Config, error) {
 			ReadTimeout:  30,
 			WriteTimeout: 30,
 			CORS: CORSConfig{
-				AllowedOrigins:   []string{"http://localhost:3000", "http://127.0.0.1:3000", "https://indian-weather-service.vercel.app/", "https://weather-service-kohl.vercel.app/"},
+				AllowedOrigins:   []string{"*"},
 				AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 				AllowedHeaders:   []string{"*"},
 				AllowCredentials: true,
@@ -65,14 +66,13 @@ func LoadConfig(configPath string) (*Config, error) {
 		if err := loadFromFile(config, configPath); err != nil {
 			return nil, fmt.Errorf("failed to load config from file: %v", err)
 		}
-} else {
-    if os.Getenv("OPENWEATHER_API_KEY") == "" {
-        if err := loadLegacyAPIConfig(config); err != nil {
-            return nil, fmt.Errorf("failed to load API config: %v", err)
-        }
-    }
-}
-
+	} else {
+		if os.Getenv("OPENWEATHER_API_KEY") == "" {
+			if err := loadLegacyAPIConfig(config); err != nil {
+				return nil, fmt.Errorf("failed to load API config: %v", err)
+			}
+		}
+	}
 
 	// Override with environment variables
 	loadFromEnv(config)
@@ -140,6 +140,14 @@ func loadFromEnv(config *Config) {
 		if val, err := strconv.Atoi(timeout); err == nil {
 			config.Server.WriteTimeout = val
 		}
+	}
+
+	if origins := os.Getenv("ALLOWED_ORIGINS"); origins != "" {
+		parts := strings.Split(origins, ",")
+		for i := range parts {
+			parts[i] = strings.TrimSpace(parts[i])
+		}
+		config.Server.CORS.AllowedOrigins = parts
 	}
 
 	// API configuration from environment
